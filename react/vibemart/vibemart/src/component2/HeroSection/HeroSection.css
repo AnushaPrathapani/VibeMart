@@ -1,0 +1,14 @@
+.hero{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    background: linear-gradient(to right, #9a4251, #d4d46f);
+    border-radius: 20px;
+}
+.hero-content h1{
+    font-size: 40px;
+}
+.hero-content p{
+    font-size: 25px;
+}
