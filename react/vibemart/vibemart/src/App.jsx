@@ -1,16 +1,16 @@
-import { useState } from 'react'
+import React from 'react'
 import './App.css'
-import { NavBar } from './component1/NavBar/NavBar'
-import HeroSection from './component2/HeroSection/HeroSection'
-import FeaturedProducts from './component3/FeaturedProducts/FeaturedProducts'
+import NavBar from './component1/NavBar/NavBar'
+import HeroSection from './component1/HeroSection/HeroSection'
+import FeaturedProducts from './component1/FeaturedProducts/FeaturedProducts'
 
 function App() {
   return (
-    <>
+    <div className='app'>
     <NavBar/>
     <HeroSection/>
     <FeaturedProducts/>
-    </>
+    </div>
   )
 }
 

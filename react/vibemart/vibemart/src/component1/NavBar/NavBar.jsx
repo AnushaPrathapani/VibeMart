@@ -1,7 +1,7 @@
 import React from 'react'
 import './NavBar.css'
-import logo from '../assets/VibeMart.png'
-export const NavBar = () => {
+import logo from '../NavBar/assets/VibeMart.png'
+const NavBar = () => {
   return (
     <div className='navbar'>
         <div className="nav-logo">
@@ -17,3 +17,5 @@ export const NavBar = () => {
     </div>
   )
 }
+
+export default NavBar

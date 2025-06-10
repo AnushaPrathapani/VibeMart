@@ -1,4 +1,3 @@
-// src/components/FeaturedProducts.js
 import React, { useEffect, useState } from 'react'
 import './FeaturedProducts.css'
 
@@ -33,7 +32,7 @@ function FeaturedProducts() {
             <img src={product.image} alt={product.title} />
             <h2>{product.title}</h2>
             <p>${product.price}</p>
-            <button className="buy-button">Buy Now</button>
+            <button className="cart-button">Add to Cart</button>
           </div>
         ))}
       </div>
