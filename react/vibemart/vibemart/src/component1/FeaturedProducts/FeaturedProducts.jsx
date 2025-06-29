@@ -23,16 +23,18 @@ function FeaturedProducts() {
     <div className="featured">
       <h1 className="title">Featured Products</h1>
 
-      {loading && <p>Loading...</p>}
-      {error && <p>{error}</p>}
+      {loading && <h2>Loading....</h2>}
+      {error && <h1>{error}</h1>}
 
       <div className="products-grid">
         {!loading && !error && products.map(product => (
           <div className="product-card" key={product.id}>
             <img src={product.image} alt={product.title} />
-            <h2>{product.title}</h2>
-            <p>${product.price}</p>
-            <button className="cart-button">Add to Cart</button>
+            <div className='product-details'>
+              <h2>{product.title}</h2>
+              <p>${product.price}</p>
+              <button className="cart-button">Add to Cart</button>
+            </div>
           </div>
         ))}
       </div>
