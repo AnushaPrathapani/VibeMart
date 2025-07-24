@@ -1,0 +1,33 @@
+body{
+    margin: 0;
+    height: 100vh;
+}
+.main-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(to right, #9a4251, #d4d46f);
+    font-size: 20px;
+}
+.signup-form{
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    box-shadow: 1px 2px 300px 25px #9a425188;
+    padding: 30px;
+    background:rgba(255, 255, 255, 0.605);
+}
+.signup-form input{
+    background-color: white;
+}
+.signup-text{
+    font-family: 'Dancing Script', cursive;
+    background-color: black;
+    color: white;
+    padding: 5px;
+    font-size: 15px;
+}
+.signup-text:hover{
+    background-color: rgb(104, 104, 104);
+}
