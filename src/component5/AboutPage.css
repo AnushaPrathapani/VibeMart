@@ -1,0 +1,11 @@
+.about-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: black;
+    padding: 0;
+    font-size: 28px;
+}
+.content{
+    margin: 50px 150px;
+}

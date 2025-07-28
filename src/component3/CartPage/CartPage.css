@@ -1,0 +1,90 @@
+.cart-container{
+    padding: 2rem;
+    background: linear-gradient(to right, #f7cac9, #fefbd8);
+    min-height: 100vh;
+    border-radius: 20px;
+}
+.cart-container h1{
+    text-align: center;
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.2rem;
+} 
+.cart-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+    justify-items: center;
+}  
+.cart-card{
+    position: relative;
+    background: rgb(249, 247, 247);
+    padding: 1.2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(29, 1, 1, 0.699);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 230px;
+    text-align: center;
+}
+.cart-card img{
+    width: 100%;
+    height: 170px;
+    object-fit: contain;
+    margin-bottom: 1rem;
+    border-radius: 10px;
+}
+.cart-details h3{
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    font-family: 'Dancing Script', cursive;
+}
+.cart-details p{
+    font-weight: bold;
+    font-size: 1rem;
+    color: #333;
+}
+.remove-btn{
+    position: absolute;
+    top: 8px;
+    right: 10px;
+    background: #992b2b;
+    color: white;
+    border: none;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+.remove-btn:hover{
+    background: #d84343;
+}
+.cart-summary{
+    margin-top: 2rem;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #444;
+}
+.checkout-btn{
+    width: 230px;
+    border-radius: 8px;
+    padding: 10px;
+    font-size: 22px;
+    font-family: 'Dancing Script', cursive;
+    font-weight: bold;
+    border-style:hidden;
+    transition: transform 0.3s ease; 
+    background-color: #89858785;
+    color: black;
+    cursor: pointer;
+}
+.checkout-btn:hover{
+    box-shadow: 0 4px 12px rgba(29, 1, 1, 0.699);  
+    transform: scale(1.1);
+    color: aliceblue;
+}

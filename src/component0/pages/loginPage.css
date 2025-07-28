@@ -24,13 +24,18 @@ body{
     border-radius: 4px;
     padding: 3px;
 }
-.signup-text button{
+.signup-link{
+    background: none;
+    border: none;
+    text-decoration: underline;
     text-align: center;
     font-size: 15px;
     cursor: pointer;
-    background-color: #9a4251;
+    color: white;
+    font-family: 'Dancing Script', cursive;
+
 }
-.login-form button{
+.login-form .login-btn{
     color: white;
     background-color: black;
     cursor: pointer;
@@ -38,7 +43,7 @@ body{
     font-family: 'Dancing Script', cursive;
     font-size: 20px;
 }
-.login-form button:hover{
+.login-form .login-btn:hover{
     background-color: rgb(104, 104, 104);
 }
 

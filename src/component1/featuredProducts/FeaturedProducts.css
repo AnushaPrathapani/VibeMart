@@ -41,7 +41,8 @@
 .product-card:hover{
     transform: translateY(-10px);
 }
-.product-details .cart-button{
+.cart-button{
+    width: 100%;
     border-radius: 8px;
     padding: 10px;
     font-size: 22px;
@@ -51,7 +52,7 @@
     transition: transform 0.3s ease; 
     cursor: pointer;
 }
-.product-card .cart-button:hover{
+.cart-button:hover{
     box-shadow: 0 4px 12px rgba(29, 1, 1, 0.699);  
     transform: scale(1.1);
     background-color: #89858785;
@@ -72,5 +73,39 @@
     margin: 0;
 }
 .featured{
-   padding-bottom: 20px; 
+    padding-bottom: 20px; 
 }
+.quantity-controls{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%; 
+    gap: 10px;
+    margin-top: 10px;
+} 
+.qty-btn{
+    flex: 1;
+    padding: 10px 0;
+    font-size: 20px;
+    font-weight: bold;
+    background-color: #38343685;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'Dancing Script', cursive;
+    transition: all 0.3s ease;
+} 
+.qty-btn:hover{
+    background-color: #9a4251;
+} 
+.qty-count{
+    flex: 1;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: black;
+}
+
+  
+  

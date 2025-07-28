@@ -1,18 +1,24 @@
 import React, { useState } from 'react';
-import './loginPage.css'
+import './loginPage.css';
 
 const LoginPage = ({ onLogin, onSignupClick }) => {
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
 
   const handleLogin = (e) => {
-    e.preventDefault()
-    if (email && password) {
-      onLogin()
+    e.preventDefault();
+    const users = JSON.parse(localStorage.getItem('vibemart-users') || '[]');
+    const userMatch = users.find(
+      (user) => user.email === email && user.password === password
+    );
+
+    if (userMatch) {
+      onLogin(); 
     } else {
-      alert('Please enter valid credentials')
+      setError('Invalid email or password!');
     }
-  }
+  };
 
   return (
     <div className="container">
@@ -27,7 +33,6 @@ const LoginPage = ({ onLogin, onSignupClick }) => {
           onChange={(e) => setEmail(e.target.value)}
           required
         />
-
         <label>Password:</label>
         <input
           type="password"
@@ -36,18 +41,19 @@ const LoginPage = ({ onLogin, onSignupClick }) => {
           onChange={(e) => setPassword(e.target.value)}
           required
         />
-
-        <button type="submit">Login</button>
-
-        <h3 className="signup-text">
+        <button className="login-btn" type="submit">
+          Login
+        </button>
+        {error && <p style={{ color: 'red', marginTop: '10px' }}>{error}</p>}
+        <p className="signup-text">
           Don't have an account?{' '}
-          <button type="button" onClick={onSignupClick}>
+          <span className="signup-link" onClick={onSignupClick}>
             Sign Up!
-          </button>
-        </h3>
+          </span>
+        </p>
       </form>
     </div>
-  )
-}
+  );
+};
 
-export default LoginPage
+export default LoginPage;
