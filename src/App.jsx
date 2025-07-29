@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import './App.css';
 import LoginPage from './component0/pages/loginPage';
 import SignupPage from './component0/pages/signupPage';
@@ -27,7 +27,6 @@ function App() {
     return saved === 'true';
   });
 
-  const [showSignup, setShowSignup] = useState(false);
   const [cartItems, setCartItems] = useState(() => {
     const saved = localStorage.getItem('vibemart-cart');
     return saved ? JSON.parse(saved) : [];
@@ -67,48 +66,92 @@ function App() {
     setCartItems([]);
   };
 
-  const handleShowSignup = () => setShowSignup(true);
-  const handleBackToLogin = () => setShowSignup(false);
-
-  if (!loggedIn) {
-    return showSignup ? (
-      <SignupPage onBackToLogin={handleBackToLogin} />
-    ) : (
-      <LoginPage onLogin={handleLogin} onSignupClick={handleShowSignup} />
-    );
-  }
-
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<HomePage handleAddToCart={handleAddToCart} />} />
-        <Route path="/about" element={<><NavBar/><AboutPage /></>} />
+        <Route
+          path="/"
+          element={
+            loggedIn ? (
+              <HomePage handleAddToCart={handleAddToCart} />
+            ) : (
+              <Navigate to="/login" />
+            )
+          }
+        />
+        <Route
+          path="/about"
+          element={
+            loggedIn ? (
+              <>
+                <NavBar />
+                <AboutPage />
+              </>
+            ) : (
+              <Navigate to="/login" />
+            )
+          }
+        />
         <Route
           path="/products"
           element={
-            <>
-              <NavBar />
-              <ProductGallery onAddToCart={handleAddToCart} />
-            </>
+            loggedIn ? (
+              <>
+                <NavBar />
+                <ProductGallery onAddToCart={handleAddToCart} />
+              </>
+            ) : (
+              <Navigate to="/login" />
+            )
           }
         />
         <Route
           path="/cart"
           element={
-            <CartPage
-              cartItems={cartItems}
-              onRemoveFromCart={handleRemoveFromCart}
-            />
+            loggedIn ? (
+              <CartPage
+                cartItems={cartItems}
+                onRemoveFromCart={handleRemoveFromCart}
+              />
+            ) : (
+              <Navigate to="/login" />
+            )
           }
         />
         <Route
           path="/checkout"
-          element={<CheckoutPage cartItems={cartItems} />}
+          element={
+            loggedIn ? (
+              <CheckoutPage cartItems={cartItems} />
+            ) : (
+              <Navigate to="/login" />
+            )
+          }
+        />
+        <Route
+          path="/login"
+          element={
+            loggedIn ? (
+              <Navigate to="/" />
+            ) : (
+              <LoginPage onLogin={handleLogin} />
+            )
+          }
+        />
+        <Route
+          path="/signup"
+          element={
+            loggedIn ? (
+              <Navigate to="/" />
+            ) : (
+              <SignupPage />
+            )
+          }
         />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
     </Router>
-  )
+  );
 }
 
-export default App
+export default App;
