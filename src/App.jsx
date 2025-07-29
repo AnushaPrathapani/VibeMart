@@ -32,6 +32,8 @@ function App() {
     return saved ? JSON.parse(saved) : [];
   });
 
+  const [showSignup, setShowSignup] = useState(false);
+
   const handleAddToCart = (product) => {
     const existingIndex = cartItems.findIndex(item => item.id === product.id);
     let updatedCart;
@@ -65,6 +67,9 @@ function App() {
     localStorage.removeItem('vibemart-cart');
     setCartItems([]);
   };
+
+  const handleShowSignup = () => setShowSignup(true);
+  const handleBackToLogin = () => setShowSignup(false);
 
   return (
     <Router>
@@ -133,8 +138,10 @@ function App() {
           element={
             loggedIn ? (
               <Navigate to="/" />
+            ) : showSignup ? (
+              <Navigate to="/signup" />
             ) : (
-              <LoginPage onLogin={handleLogin} />
+              <LoginPage onLogin={handleLogin} onSignupClick={handleShowSignup} />
             )
           }
         />
@@ -144,7 +151,7 @@ function App() {
             loggedIn ? (
               <Navigate to="/" />
             ) : (
-              <SignupPage />
+              <SignupPage onBackToLogin={handleBackToLogin} />
             )
           }
         />
