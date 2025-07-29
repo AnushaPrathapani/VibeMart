@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://AnushaPrathapani.github.io/VibeMart",
+  "homepage": "https://anushaprathapani.github.io/VibeMart",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
